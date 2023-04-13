@@ -3,6 +3,8 @@ import { Card, Col, Row, Image, Button, ButtonGroup } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import '../STYLES/CategoryDetails.css'
+import NavigationBar from './NavigationBar'
+import Header from './Header'
 
 function CategoryDetails({ item }) {
 
@@ -13,16 +15,20 @@ function CategoryDetails({ item }) {
     console.log("details: ", details)
 
     const [cart, setCart] = useState(0)
-    function addCart()
-    {
-        setCart(cart+1)
+    function addCart() {
+        setCart(cart + 1)
     }
-    function removeCart()
-    {
-        setCart(cart-1)
+    function removeCart() {
+        if(cart > 0)
+        {
+            setCart(cart - 1)
+        }
     }
     return (
+        
         <div>
+            <span className=''><NavigationBar count={cart} /></span>
+            <Header />
             {details.category_dishes.map((item) => (
                 <div>
                     <Card className='border-start-0 border-end-0 border-top-0' >
@@ -41,14 +47,15 @@ function CategoryDetails({ item }) {
                                 </Col>
                             </Row>
 
-                            <ButtonGroup>
-                            <Button variant='success' pill onClick={removeCart}>-</Button>
-                            <span className='bg-success p-2'>{cart}</span>
-                            <Button variant='success' onClick={addCart}>+</Button>
+                            <ButtonGroup >
+                                <Button style={{borderTopLeftRadius: '50%', borderBottomLeftRadius: '50%'}} variant='success' onClick={removeCart}>-</Button>
+                                <span className='bg-success p-2'>{cart}</span>
+                                <Button style={{borderTopRightRadius: '50%', borderBottomRightRadius: '50%'}} variant='success' onClick={addCart}>+</Button>
                             </ButtonGroup>
 
                             <p className='availability' >{`${item.dish_Availability ? "" : "Not available"}`}</p>
-                            <Link to=''>
+                            
+                            <Link to='' style={{textDecoration: 'none'}}>
                                 <p className='availability'>{`${item.addonCat.length !== 0 ? "customization available" : ""}`}</p>
                             </Link>
                         </Card.Body>

@@ -2,8 +2,9 @@
 {
     display: flex;
     overflow: scroll;
-    margin: 0 auto;
-    align-items: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    color: black;
 }
 
 .categories::-webkit-scrollbar
@@ -14,15 +15,17 @@
 .menu_category
 {
     margin: auto;
-    justify-content: center;
-    text-align: center;
+    white-space: nowrap;
 }
 
 .links
 {
     text-decoration: none;
     color: #111;
-    object-fit: none;
-    margin: 0 10px;
-    white-space: nowrap;
+    margin: 10px;
+}
+
+.links:active, .links:hover
+{
+    color: red;
 }

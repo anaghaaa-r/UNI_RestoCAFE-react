@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap'
+import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import '../STYLES/Header.css'
 
@@ -19,20 +19,19 @@ function Header() {
 
     return (
         <div>
-            {resto.map((item) => (
-                <Container>
+                {resto.map((item) => (
                     <div className='categories'>
                         {item.table_menu_list.map((item) => (
                             <div className='menu_category'>
-                                <Link to={`/${item.menu_category_id}`} className='links'>
-                                    {item.menu_category}
-                                </Link>
+                                <Nav fill>
+                                    <Nav.Item>
+                                        <Link to={`/${item.menu_category_id}`} className='links'>{item.menu_category}</Link>
+                                    </Nav.Item>
+                                </Nav>
                             </div>
                         ))}
                     </div>
-                    
-                </Container>
-            ))}
+                ))}
         </div>
     )
 }
