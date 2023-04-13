@@ -1,0 +1,27 @@
+.categories
+{
+    margin-top: 25px;
+    display: flex;
+    overflow: scroll;
+}
+
+.categories::-webkit-scrollbar
+{
+    display: none;
+}
+
+.menu_category
+{
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.links
+{
+    text-decoration: none;
+    color: #111;
+    object-fit: none;
+    margin: 0 10px;
+    white-space: nowrap;
+}

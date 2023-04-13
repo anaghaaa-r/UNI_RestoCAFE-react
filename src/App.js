@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import NavigationBar from './COMPONENTS/NavigationBar'
+import Header from './COMPONENTS/Header'
+import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import CategoryDishes from './COMPONENTS/CategoryDishes'
+import CategoryDetails from './COMPONENTS/CategoryDetails'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <NavigationBar />
+        <Header />
+        <div className='divider' />
+        <main className='py-3'>
+          <Routes>
+            <Route path='/:id' element={<CategoryDishes />} />
+            <Route path='*' element={<Navigate to="/11" />} />
+          </Routes>
+        </main>
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

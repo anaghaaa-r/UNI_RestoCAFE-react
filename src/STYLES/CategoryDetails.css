@@ -1,0 +1,17 @@
+.dishes
+{
+    object-fit: cover;
+    width: 125px;
+    height: 100px;
+    float: right;
+}
+
+.availability
+{
+    color: red;
+}
+
+.desc
+{
+    color: rgb(97, 97, 97);
+}
